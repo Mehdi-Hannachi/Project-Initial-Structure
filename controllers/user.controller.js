@@ -6,12 +6,13 @@ exports.userRegister = async (req, res) => {
   const user = await User.findOne({ email });
 
   try {
-    if (user) return res.status(402).json({ msg: `User already exist` });
+    if (user)
+      return res.status(402).json({ errors: [{ msg: `User already exist` }] });
 
     await newUser.save();
 
     res.status(200).json({ msg: `Register user success` });
   } catch (error) {
-    res.status(400).json({ msg: `Register user failed` });
+    res.status(400).json({ errors: [{ msg: `Register user failed` }] });
   }
 };
