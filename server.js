@@ -9,6 +9,7 @@ require("dotenv").config({ path: "./config/.env" });
 
 const express = require("express");
 const connectDB = require("./config/connectDB");
+const auth = require("./routes/auth");
 
 // Associate express methods to the variabel app
 const app = express();
@@ -18,6 +19,9 @@ app.use(express.json());
 
 // Data base Connection
 connectDB();
+
+//Create endpoints
+app.use("/api/auth", auth);
 
 // Listen to port and run server
 app.listen(process.env.PORT || process.env.port, (err) => {
