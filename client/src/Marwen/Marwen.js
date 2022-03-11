@@ -1,13 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const Marwen = () => {
-  return (
-    <div>
-<h1>Hello</h1>
+
+  return <h1>Mehdi</h1>;
+};
 
 
-    </div>
-  )
-}
-
-export default Marwen
+export default Marwen;
